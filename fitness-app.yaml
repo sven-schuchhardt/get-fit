@@ -1,0 +1,2506 @@
+openapi: 3.1.0
+x-stoplight:
+  id: y97lhbx2jb47e
+info:
+  title: fitness-app
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'http://localhost:4000'
+paths:
+  /user:
+    delete:
+      summary: ''
+      operationId: delete-user
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+    get:
+      summary: ''
+      operationId: get-user-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+              examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      description: ''
+  /auth/register:
+    post:
+      summary: ''
+      operationId: post-auth-register
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: error.errors
+              examples: {}
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: BodyPart not found
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  bodyPart: string
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                birthday:
+                  type: string
+                email:
+                  type: string
+                firebaseUid:
+                  type: string
+              required:
+                - firstName
+                - lastName
+                - birthday
+                - email
+                - firebaseUid
+            examples: {}
+    parameters: []
+  '/weightTrainingExercise/{id}':
+    delete:
+      summary: ''
+      operationId: delete-weightTrainingExercise
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /weightTrainingExercise/:
+    post:
+      summary: ''
+      operationId: post-weightTrainingExercise
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: error.errors
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: BodyPart not found
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  name: string
+                  description: string
+                  imageOrGifUrl: string
+                  videoLink: string
+                  muscleGroup: string
+                  bodyPart: string
+                  equipment: string
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                imageOrGifUrl:
+                  type: string
+                videoLink:
+                  type: string
+                muscleGroup:
+                  type: string
+                bodyPart:
+                  type: string
+                equipment:
+                  type: string
+              required:
+                - name
+                - description
+                - imageOrGifUrl
+                - videoLink
+                - muscleGroup
+                - bodyPart
+                - equipment
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  '/weightTrainingExercise/updateBodyPart/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExercise-updateBodyPart
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              format: uuid
+              properties:
+                bodyPart:
+                  type: string
+                  format: uuid
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExercise/updateExercise/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExercise-updateExercise
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                imageOrGifUrl:
+                  type: string
+                videoLink:
+                  type: string
+                muscleGroup:
+                  type: string
+                bodyPart:
+                  type: string
+                equipment:
+                  type: string
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExercise/one/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExercise'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      operationId: get-weightTrainingExercise-one
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /weightTrainingExercise/all:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeightTrainingExercise'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-weightTrainingExercise-all
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+  '/bodyPart/{id}':
+    put:
+      summary: ''
+      operationId: put-bodyPart
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BodyPart'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bodyPart:
+                  type: string
+            examples:
+              Example 1:
+                value:
+                  bodyPart: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    delete:
+      summary: ''
+      operationId: delete-bodyPart
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /bodyPart/:
+    post:
+      summary: ''
+      operationId: post-bodyPart
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BodyPart'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: error.errors
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: BodyPart not found
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  bodyPart: string
+              properties:
+                bodyPart:
+                  type: string
+              required:
+                - bodyPart
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  /bodyPart/multi:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-bodyPart-multi
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                names:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BodyPart'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: d
+    parameters: []
+  /bodyPart/all:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BodyPart'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-bodyPart-all
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  '/weightTrainingExercisePlan/{id}':
+    delete:
+      summary: ''
+      operationId: delete-weightTrainingExercisePlan
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExercisePlan/addExercise/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExercisePlan-addExercises
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                weightTrainingExercise:
+                  type: string
+                  format: uuid
+                setAmount:
+                  type: number
+                repetition:
+                  type: number
+                days:
+                  type: array
+                  items:
+                    type: string
+              x-examples:
+                Example 1:
+                  weightTrainingExercise: c31f1d05-0597-462e-ac73-70035869b758
+                  setAmount: 0
+                  repetition: 0
+                  days:
+                    - string
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExercisePlan/updateExercise/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExercisePlan-updateExercises
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  title: string
+                  description: string
+              properties:
+                weightTrainingExercise:
+                  type: string
+                  format: uuid
+                setAmount:
+                  type: number
+                repetition:
+                  type: number
+                days:
+                  type: array
+                  items:
+                    type: string
+            examples: {}
+        description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExercisePlan/removeExercise/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExercisePlan-removeExercises
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+              examples: {}
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                weightTrainingExercise:
+                  type: string
+                  format: uuid
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /weightTrainingExercisePlan/:
+    post:
+      summary: ''
+      operationId: post-weightTrainingExercisePlan
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: error.errors
+              examples: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: BodyPart not found
+              examples: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  bodyPart: string
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+              required:
+                - title
+                - description
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      description: ''
+    parameters: []
+  '/weightTrainingExercisePlan/one/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: string
+      operationId: get-weightTrainingExercisePlan-one
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /weightTrainingExercisePlan/allByUser:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-weightTrainingExercisePlan-all
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  /weightTrainingExercisePlan/allCreatedByUser:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/weightTrainingExercisePlan'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-weightTrainingExercisePlan-allCreatedByUser
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  /weightTrainingExercisePlan/allDefaultByUser:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-weightTrainingExercisePlan-allDefaultByUser
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters: []
+  '/weightTrainingExerciseDiaryEntry/byDatePlanUser/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExerciseDiaryEntry'
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+      operationId: get-weightTrainingExerciseDiaryEntry-byDatePlanUser
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  example: '2022-10-01'
+              required:
+                - date
+        description: ''
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: plan id
+  /weightTrainingExerciseDiaryEntry:
+    post:
+      summary: ''
+      operationId: post-weightTrainingExerciseDiaryEntry
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExerciseDiaryEntry'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  date: '2019-08-24'
+                  weightTrainingExercisePlan: d51184e8-e9ed-417b-ad2a-d7e8c615e561
+                  note: string
+              properties:
+                date:
+                  type: string
+                  format: date
+                  pattern: YYYY-MM-DD
+                weightTrainingExercisePlan:
+                  type: string
+                  format: uuid
+                note:
+                  type: string
+              required:
+                - date
+                - weightTrainingExercisePlan
+                - note
+            examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+  '/weightTrainingExerciseDiaryEntry/updateDiaryEntry/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExerciseDiaryEntry-updateDiaryEntry
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExerciseDiaryEntry'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  date: '2019-01-16'
+                  weightTrainingExercisePlan: weightTrainingExercisePlan._id
+                  note: test_diary_entry
+              properties:
+                date:
+                  type: string
+                  format: date
+                weightTrainingExercisePlan:
+                  type: string
+                  format: uuid
+                note:
+                  type: string
+              required:
+                - weightTrainingExercisePlan
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExerciseDiaryEntry/addRepetitionAndAmount/{id}':
+    put:
+      summary: ''
+      operationId: put-weightTrainingExerciseDiaryEntry-addRepetitionAndAmount
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  repetition: 10
+                  setAmount: 10
+                  weightTrainingExercise: weightTrainingExercise._id
+              properties:
+                repetition:
+                  type: number
+                setAmount:
+                  type: number
+                weightTrainingExercise:
+                  type: string
+                  format: uuid
+              required:
+                - weightTrainingExercise
+            examples: {}
+        description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/weightTrainingExerciseDiaryEntry/updateRepetitionAndAmount/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-weightTrainingExerciseDiaryEntry-updateRepetitionAndAmount-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeightTrainingExerciseDiaryEntry'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  repetition: 0
+                  setAmount: 0
+                  weightTrainingExercise: c31f1d05-0597-462e-ac73-70035869b758
+              properties:
+                repetition:
+                  type: number
+                setAmount:
+                  type: number
+                weightTrainingExercise:
+                  type: string
+                  format: uuid
+              required:
+                - weightTrainingExercise
+        description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+  '/weightTrainingExerciseDiaryEntry/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    delete:
+      summary: ''
+      operationId: delete-weightTrainingExerciseDiaryEntry-id
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: Not Found
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+  /weightTrainingExerciseDiaryEntry/getSummarizedDataLast7Days:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    diaryEntry:
+                      $ref: '#/components/schemas/WeightTrainingExerciseDiaryEntry'
+                    amount:
+                      type: number
+                    repetition:
+                      type: number
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: No active Plan found
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: You don't have access
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: error
+      operationId: get-weightTrainingExerciseDiaryEntry-getSummarizedDataLast7Days
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+  /user/updateInformation:
+    put:
+      summary: ''
+      operationId: put-user-updateInformation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+              examples: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                birthday:
+                  type: string
+                email:
+                  type: string
+              x-examples:
+                Example 1:
+                  firstName: string
+                  lastName: string
+                  birthday: string
+                  email: string
+  '/user/updateActivePlan/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-user-updateActivePlan-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: ''
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+                x-examples:
+                  Example 1:
+                    errors: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+      description: ''
+  /withoutAuth/weightTrainingExercises/allDefault:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-withoutAuth-weightTrainingExercises-allDefault
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeightTrainingExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: error.message
+    parameters: []
+  /withoutAuth/yogaExercises/allDefault:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/YogaExercise'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      operationId: get-withoutAuth-yogaExercises-allDefault
+components:
+  schemas:
+    WeightTrainingExerciseDiaryEntry:
+      title: WeightTrainingExerciseDiaryEntry
+      x-stoplight:
+        id: d89bfc38ce4b3
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        updatedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        date:
+          type: string
+          format: date-time
+        note:
+          type: string
+        weightTrainingExercisePlan:
+          $ref: '#/components/schemas/weightTrainingExercisePlan'
+      required:
+        - id
+        - updatedAt
+        - createdAt
+        - date
+        - note
+    User:
+      title: User
+      x-stoplight:
+        id: hqnmw7hlxoeyp
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        firstName:
+          type: string
+        lastName:
+          type: string
+        birthday:
+          type: string
+        email:
+          type: string
+          format: email
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseExerciseEntityUser'
+        activePlan:
+          oneOf:
+            - $ref: '#/components/schemas/weightTrainingExercisePlan'
+            - $ref: '#/components/schemas/YogaExercisePlan'
+        exercisePlans:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/weightTrainingExercisePlan'
+              - $ref: '#/components/schemas/YogaExercisePlan'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - firstName
+        - lastName
+        - birthday
+        - email
+    BaseExerciseEntityUser:
+      title: BaseExerciseEntityUser
+      x-stoplight:
+        id: qkvo1clltv5ki
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        exercise:
+          oneOf:
+            - $ref: '#/components/schemas/YogaExercise'
+            - $ref: '#/components/schemas/WeightTrainingExercise'
+        note:
+          type: string
+      required:
+        - user
+        - exercise
+        - note
+    WeightTrainingExercise:
+      title: WeightTrainingExercise
+      x-stoplight:
+        id: bd33fe9f231e4
+      type: object
+      examples:
+        - id: string
+          createdAt: '2019-08-24'
+          updatedAt: '2019-08-24'
+          name: string
+          description: string
+          imageOrGifUrl: string
+          videoLink: string
+          createdByUser: true
+          muscleGroup: string
+          bodyPart: string
+          equipment: string
+          exercisePlans:
+            - {}
+      properties:
+        id:
+          type: string
+          format: uri
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        imageOrGifUrl:
+          type: string
+        videoLink:
+          type: string
+        createdByUser:
+          type: boolean
+        muscleGroup:
+          type: string
+        bodyPart:
+          $ref: '#/components/schemas/BodyPart'
+        equipment:
+          type: string
+        exercisePlans:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeightTrainingExerciseweightTrainingExercisePlan'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseExerciseEntityUser'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - name
+        - description
+        - imageOrGifUrl
+        - videoLink
+        - createdByUser
+        - muscleGroup
+        - bodyPart
+        - equipment
+      description: ''
+    BodyPart:
+      title: BodyPart
+      x-stoplight:
+        id: cqtwxxvwavb0z
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        bodyPart:
+          type: string
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeightTrainingExercise'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - bodyPart
+    weightTrainingExercisePlan:
+      title: weightTrainingExercisePlan
+      x-stoplight:
+        id: 529355d8ba9e6
+      type: object
+      examples:
+        - id: string
+          createdAt: '2019-08-24T14:15:22Z'
+          updatedAt: '2019-08-24T14:15:22Z'
+          title: string
+          description: string
+          createdByUser: true
+          user:
+            - _id: string
+              createdAt: string
+              updatedAt: string
+              firstName: string
+              lastName: string
+              birthday: string
+              email: string
+          diaryEntry:
+            - _id: string
+              updatedAt: string
+              createdAt: string
+              repetition: 0
+              note: string
+              date: string
+          exercises:
+            - exercisePlan: {}
+              exercise:
+                id: string
+                createdAt: '2019-08-24'
+                updatedAt: '2019-08-24'
+                name: string
+                description: string
+                imageOrGifUrl: string
+                videoLink: string
+                createdByUser: true
+                muscleGroup: string
+                bodyPart: string
+                equipment: string
+                exercisePlans:
+                  - {}
+              setAmount: 0
+              repetition: 0
+              day:
+                - string
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        title:
+          type: string
+        description:
+          type: string
+        createdByUser:
+          type: boolean
+        user:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        diaryEntry:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiaryEntry'
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeightTrainingExerciseweightTrainingExercisePlan'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - title
+        - description
+        - createdByUser
+    WeightTrainingExerciseweightTrainingExercisePlan:
+      title: WeightTrainingExerciseweightTrainingExercisePlan
+      x-stoplight:
+        id: a356d9916c9f3
+      type: object
+      properties:
+        exercisePlan:
+          $ref: '#/components/schemas/weightTrainingExercisePlan'
+        exercise:
+          $ref: '#/components/schemas/WeightTrainingExercise'
+        setAmount:
+          type: number
+        repetition:
+          type: number
+        days:
+          type: array
+          items:
+            type: string
+      required:
+        - exercisePlan
+        - exercise
+        - setAmount
+        - repetition
+        - days
+    YogaExercise:
+      type: object
+      x-examples:
+        Example 1:
+          id: string
+          createdAt: '2019-08-24'
+          updatedAt: '2019-08-24'
+          name: string
+          description: string
+          imageOrGifUrl: string
+          videoLink: string
+          createdByUser: true
+          muscleGroup: string
+          bodyPart: string
+          equipment: string
+          exercisePlans:
+            - {}
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        imageOrGifUrl:
+          type: string
+        videoLink:
+          type: string
+        createdByUser:
+          type: boolean
+        sanskritName:
+          type: string
+        exercisePlans:
+          type: array
+          items:
+            $ref: '#/components/schemas/YogaExerciseYogaExercisePlan'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - name
+        - description
+        - imageOrGifUrl
+        - videoLink
+        - createdByUser
+        - sanskritName
+    YogaExercisePlan:
+      type: object
+      x-examples:
+        Example 1:
+          id: string
+          createdAt: '2019-08-24T14:15:22Z'
+          updatedAt: '2019-08-24T14:15:22Z'
+          title: string
+          description: string
+          createdByUser: true
+          user:
+            - _id: string
+              createdAt: string
+              updatedAt: string
+              firstName: string
+              lastName: string
+              birthday: string
+              email: string
+          diaryEntry:
+            - _id: string
+              updatedAt: string
+              createdAt: string
+              repetition: 0
+              note: string
+              date: string
+          exercises:
+            - exercisePlan: {}
+              exercise:
+                id: string
+                createdAt: '2019-08-24'
+                updatedAt: '2019-08-24'
+                name: string
+                description: string
+                imageOrGifUrl: string
+                videoLink: string
+                createdByUser: true
+                muscleGroup: string
+                bodyPart: string
+                equipment: string
+                exercisePlans:
+                  - {}
+              setAmount: 0
+              repetition: 0
+              day:
+                - string
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        title:
+          type: string
+        description:
+          type: string
+        createdByUser:
+          type: boolean
+        user:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        diaryEntry:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiaryEntry'
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/YogaExerciseYogaExercisePlan'
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - title
+        - description
+        - createdByUser
+    YogaExerciseYogaExercisePlan:
+      title: YogaExerciseYogaExercisePlan
+      x-stoplight:
+        id: xxy6e2m9woduu
+      type: object
+      properties:
+        exercisePlan:
+          $ref: '#/components/schemas/YogaExercisePlan'
+        exercise:
+          $ref: '#/components/schemas/YogaExercise'
+        days:
+          type: array
+          items:
+            type: string
+      required:
+        - exercisePlan
+        - exercise
+        - days
+    DiaryEntryWeightTrainingExercise:
+      title: DiaryEntryWeightTrainingExercise
+      x-stoplight:
+        id: 162zw2rupbiv1
+      type: object
+      properties:
+        id:
+          type: string
+    DiaryEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        setAmount:
+          type: number
+        repetition:
+          type: number
+      required:
+        - id
+        - createdAt
+        - updatedAt
+        - setAmount
+        - repetition

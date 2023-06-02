@@ -1,0 +1,133 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>11</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>375</x><y>0</y><w>231</w><h>110</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+BaseEntity
+--
+- id: String
+- createdAt: Date
+- updatedAt: Date
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>375</x><y>253</y><w>231</w><h>143</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+BaseExerciseEntity
+--
+- description: String
+- imageOrGifUrl: String
+- name: String
+- videoLink: String
+- createdByUser: Boolean
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>485</x><y>99</y><w>33</w><h>176</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>737</y><w>308</w><h>77</h></coordinates><panel_attributes>YogaExercise
+--
+- sanskritName: String
+- exercisePlans: YogaExerciseYogaExercisePlan
+-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>375</x><y>385</y><w>88</w><h>407</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;350;60;350</additional_attributes></element><element><id>UMLClass</id><coordinates><x>397</x><y>440</y><w>418</w><h>110</h></coordinates><panel_attributes>WeightTrainingExercise
+--
+- muscleGroup: String
+- bodyPart: BodyPart
+- equipment: String
+- exercisePlans: WeightTrainingExerciseWeightTrainigExercisePlan
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>375</x><y>385</y><w>44</w><h>132</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100;20;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1376</x><y>242</y><w>231</w><h>143</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+BasePlanEntity
+--
+- title: string
+- description: string
+- createdByUser: boolean
+- user: Collection&lt;User&gt;
+- diaryEntry: Collection&lt;DiaryEntry&gt;
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>485</x><y>99</y><w>1034</w><h>165</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90;920;90;920;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1255</x><y>440</y><w>319</w><h>66</h></coordinates><panel_attributes>WeightTrainigExercisePlan
+--
+- exercises: Collection&lt;PivotExercisePlanExercise&gt;
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>914</x><y>440</y><w>231</w><h>165</h></coordinates><panel_attributes>
+WeightTrainingExerciseWeightTrainigExercisePlan
+--
+- exercisePlan: WeightTrainigExercisePlan
+- exercise: WeightTrainingExercise
+- setAmount: number
+- repetition: number
+- day: string
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>804</x><y>473</y><w>132</w><h>55</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=n
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1134</x><y>473</y><w>143</w><h>55</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1563</x><y>374</y><w>44</w><h>143</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>20;10;20;110;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1222</x><y>737</y><w>352</w><h>66</h></coordinates><panel_attributes>YogaExercisePlan
+--
+- exercises: Collection&lt;YogaExerciseYogaExercisePlan&gt;
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>892</x><y>737</y><w>231</w><h>132</h></coordinates><panel_attributes>
+YogaExerciseYogaExercisePlan
+--
+- exercisePlan: YogaExercisePlan
+- exercise: YogaExercise
+- day: string
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>748</y><w>176</w><h>55</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=n
+</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1112</x><y>748</y><w>132</w><h>55</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1563</x><y>374</y><w>44</w><h>418</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>20;10;20;360;10;360</additional_attributes></element><element><id>UMLClass</id><coordinates><x>826</x><y>990</y><w>297</w><h>143</h></coordinates><panel_attributes>User
+--
+- firstName: String
+- lastName: String
+- birthday: Date
+- email: String
+- exercisePlans: Collection&lt;BasePlanEntity&gt;
+- diaryEntries: Collection&lt;DiaryEntry&gt;
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>221</x><y>99</y><w>627</w><h>1001</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>250;10;250;90;10;90;10;890;550;890</additional_attributes></element><element><id>Relation</id><coordinates><x>1112</x><y>286</y><w>583</w><h>781</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=m
+</panel_attributes><additional_attributes>10;680;510;680;510;10;450;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>826</x><y>1210</y><w>231</w><h>121</h></coordinates><panel_attributes>DiaryEntry
+--
+- repetition: number
+- note: String
+- exercisePlan: BasePlanEntity
+- user: User
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>221</x><y>99</y><w>627</w><h>1210</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>250;10;250;90;10;90;10;1080;550;1080</additional_attributes></element><element><id>Relation</id><coordinates><x>1079</x><y>1144</y><w>44</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1046</x><y>451</y><w>605</w><h>880</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1
+</panel_attributes><additional_attributes>10;770;530;770;530;10;480;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>276</x><y>902</y><w>231</w><h>132</h></coordinates><panel_attributes>
+BaseExerciseEntityUser
+--
+- id: string??
+- user: User
+- exercise: BaseExerciseEntity
+- note: String
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>496</x><y>946</y><w>352</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes><additional_attributes>10;10;70;10;70;70;300;70</additional_attributes></element><element><id>Relation</id><coordinates><x>298</x><y>297</y><w>99</w><h>627</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes><additional_attributes>10;550;10;10;70;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1046</x><y>770</y><w>605</w><h>561</h></coordinates><panel_attributes>lt=-
+m1=n
+m2=1
+</panel_attributes><additional_attributes>10;480;530;480;530;10;480;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>485</x><y>627</y><w>231</w><h>88</h></coordinates><panel_attributes>BodyPart
+--
+- bodyPart: string
+- exercises: Collection&lt;WeightTrainingExercise&gt;
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>584</x><y>539</y><w>44</w><h>110</h></coordinates><panel_attributes>lt=-
+m1= 1
+m2= n</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>452</x><y>1122</y><w>231</w><h>121</h></coordinates><panel_attributes>DiaryEntryWeightTrainingExercise
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>1188</y><w>198</w><h>99</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1
+teaches to &gt;</panel_attributes><additional_attributes>10;10;90;10;90;60;140;60</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>506</y><w>231</w><h>715</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=0..1</panel_attributes><additional_attributes>140;10;10;10;10;620;190;620</additional_attributes></element></diagram>

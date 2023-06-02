@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "colName": "FWE-Fitnessapp",
+    "created": "2023-01-10T16:31:01.626Z",
+    "sortNum": 20000,
+    "folders": [
+      {
+        "_id": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+        "name": "Exercise",
+        "containerId": "",
+        "created": "2023-01-10T16:34:49.008Z",
+        "sortNum": 10000
+      }
+    ]
+  },
+  {
+    "_id": "7106f22e-495b-4321-be6d-3e8ecbeec6aa",
+    "colName": "User",
+    "created": "2023-01-11T14:05:35.520Z",
+    "sortNum": 30000,
+    "folders": []
+  },
+  {
+    "_id": "496e9133-1511-46f1-a70e-4b759e7ab5e6",
+    "colName": "ExercisePlan",
+    "created": "2023-01-11T14:05:46.762Z",
+    "sortNum": 40000,
+    "folders": []
+  }
+]

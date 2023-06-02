@@ -1,0 +1,23 @@
+image: docker/compose:latest
+
+stages:
+  - build
+  - test
+
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+  - docker-compose --version
+
+build image:
+  stage: build
+  script:
+    - docker-compose build
+
+test:
+  stage: test
+  script:
+    - docker-compose up --abort-on-container-exit
+    - docker image prune

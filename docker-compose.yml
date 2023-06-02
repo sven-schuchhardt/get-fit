@@ -1,0 +1,74 @@
+version: "3.1"
+
+networks:
+  connection_backend_db:
+  connection_backend_frontend:
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - 4000:4000
+    environment:
+      - LOG_LEVEL=debug
+      - script=${SCRIPT}
+      - X_RapidAPI_Key=${API_KEY}
+      - mongo_user=${MONGO_USER}
+      - mongo_password=${MONGO_PASSWORD}
+      - mongo_url=${MONGO_URL}
+      - service_account=${SERVICE_ACCOUNT}
+      - type=${TYPE}
+      - project_id=${PROJECT_ID}
+      - private_key_id=${PRIVATE_KEY_ID}
+      - private_key=${PRIVATE_KEY}
+      - client_email=${CLIENT_EMAIL}
+      - client_id=${CLIENT_ID}
+      - auth_uri=${AUTH_URI}
+      - token_uri=${TOKEN_URI}
+      - auth_provider_x509_cert_url=${AUTH_PROVIDER_X509_CERT_URL}
+      - client_x509_cert_url=${CLIENT_X509_CERT_URL}
+      - apiKey=${APIKEY}
+      - authDomain=${AUTHDOMAIN}
+      - storageBucket=${STORAGEBUCKET}
+      - messagingSenderId=${MESSAGINGSENDERID}
+      - appId=${APPID}
+      - measurementId=${MEASUREMENTID}
+    networks:
+      - connection_backend_db
+      - connection_backend_frontend
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - connection_backend_db
+  frontend: 
+    build: ./frontend
+    container_name: frontend
+    ports: 
+      - 3000:3000
+    environment:
+      - APP_PROJECT_ID=${PROJECT_ID}
+      - APP_API_KEY=${APIKEY}
+      - APP_AUTH_DOMAIN=${AUTHDOMAIN}
+      - APP_STORAGE_BUCKET=${STORAGEBUCKET}
+      - APP_MESSAGING_SENDER_ID=${MESSAGINGSENDERID}
+      - APP_ID=${APPID}
+      - APP_MEASUREMENT_ID=${MEASUREMENTID}
+    networks:
+      - connection_backend_frontend
+    depends_on:
+      - backend
+
+volumes:
+  db-data:
+    driver: local

@@ -1,0 +1,225 @@
+[
+  {
+    "_id": "a443055c-7d13-4b91-aba5-16f320500c36",
+    "colId": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "containerId": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+    "name": "POST - 201",
+    "url": "http://localhost:4000/exercise/",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-01-10T16:35:10.504Z",
+    "modified": "2023-01-10T17:35:50.076Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"description\": \" \",\n  \"name\": \"name_test\",\n  \"bodyPart\": \"bodyPart_test\",\n  \"muscleGroup\": \"muscleGroup_test\",\n  \"videoLink\": \" \",\n  \"equipment\": \"equipment_test\",\n  \"imageOrGifUrl\": \" \"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4e70c48b-0cd6-4759-816c-682ec57f9f7a",
+    "colId": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "containerId": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+    "name": "POST - 201 not required",
+    "url": "http://localhost:4000/exercise/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-01-10T17:36:28.120Z",
+    "modified": "2023-01-11T10:13:04.011Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"name_test\",\n  \"bodyPart\": \"bodyPart_test\",\n  \"muscleGroup\": \"muscleGroup_test\",\n  \"equipment\": \"equipment_test\",\n  \"imageOrGifUrl\": \" \",\n  \"videoLink\": \" \"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1dfd673d-cd1a-4233-89f6-7b978b43d7a7",
+    "colId": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "containerId": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+    "name": "GET - all - 200",
+    "url": "http://localhost:4000/exercise/all/",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-01-10T20:31:12.221Z",
+    "modified": "2023-01-11T10:12:10.542Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6e7a524b-6fee-48cf-8e7e-089964c3c124",
+    "colId": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "containerId": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+    "name": "GET - one - 200",
+    "url": "http://localhost:4000/exercise/only_one/63be8aa7e5170ee1a3f03aa9",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-01-11T10:19:36.785Z",
+    "modified": "2023-01-11T11:34:38.825Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5d89989f-0d73-4020-9870-93cdb2272ba1",
+    "colId": "028dd274-53f6-470d-8b29-8c735a3e6328",
+    "containerId": "b691acec-59d1-4e78-8bb5-13f6f9d84892",
+    "name": "GET - all_name_id - 200",
+    "url": "http://localhost:4000/exercise/all_name_id/",
+    "method": "GET",
+    "sortNum": 45000,
+    "created": "2023-01-11T11:53:36.199Z",
+    "modified": "2023-01-11T11:53:42.325Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1d6b032e-6066-4651-9b34-122cdbbf4d8e",
+    "colId": "7106f22e-495b-4321-be6d-3e8ecbeec6aa",
+    "containerId": "",
+    "name": "Create User localhost:4000/user/ ",
+    "url": "localhost:4000/user/",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-01-11T14:05:35.525Z",
+    "modified": "2023-01-11T14:05:35.525Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@test.de\",\n  \"birthday\": \"2023-01-01\",\n  \"firstName\": \"Vorname Test\",\n  \"lastName\": \"Nachname Test\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d4cec276-93b0-41ae-a3fa-93cbf37b6fca",
+    "colId": "7106f22e-495b-4321-be6d-3e8ecbeec6aa",
+    "containerId": "",
+    "name": "Get User By ID localhost:4000/user/:63bc74fdfd6e42b0ff257a6f",
+    "url": "localhost:4000/user/63bc74fdfd6e42b0ff257a6f",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-01-11T14:05:35.526Z",
+    "modified": "2023-01-11T14:05:35.526Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "ba68b25a-21c2-484b-8248-7bdf42c0ec03",
+    "colId": "7106f22e-495b-4321-be6d-3e8ecbeec6aa",
+    "containerId": "",
+    "name": "Delete User localhost:4000/user/63bc74fdfd6e42b0ff257a6f",
+    "url": "localhost:4000/user/63bc74fdfd6e42b0ff257a6f",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2023-01-11T14:05:35.527Z",
+    "modified": "2023-01-11T14:05:35.527Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4e2d6f9f-6a90-44db-86b0-d68655c1a45a",
+    "colId": "7106f22e-495b-4321-be6d-3e8ecbeec6aa",
+    "containerId": "",
+    "name": "Update User localhost:4000/user/63bc74fdfd6e42b0ff257a6f",
+    "url": "localhost:4000/user/63bc8f43f3f922059093a8bd",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2023-01-11T14:05:35.528Z",
+    "modified": "2023-01-11T14:05:35.528Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"firstName\": \"updated first name\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "651de8df-937f-4d22-b565-4c8335aacb8f",
+    "colId": "496e9133-1511-46f1-a70e-4b759e7ab5e6",
+    "containerId": "",
+    "name": "Create ExercisePlan    localhost:4000/exerciseplan/",
+    "url": "localhost:4000/exerciseplan/",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-01-11T14:05:46.772Z",
+    "modified": "2023-01-11T14:05:46.772Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"test exercise plan\",\n  \"description\": \"exercise plan to get hugeee\",\n  \"exercises\": [\n      \"63bc723a491c618c94426fe5\",\n      \"63bc723a491c618c94426fe9\",\n      \"63bc723a491c618c94426fee\"\n    ]\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "56a97f0e-01bf-4f78-8a57-b3ff2876f725",
+    "colId": "496e9133-1511-46f1-a70e-4b759e7ab5e6",
+    "containerId": "",
+    "name": "Get One ExercisePlan By ID  localhost:4000/exercisePlan/:id",
+    "url": "localhost:4000/exercisePlan/63bec7be68f96808b6fae733",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-01-11T14:05:46.773Z",
+    "modified": "2023-01-11T14:31:22.330Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "894d08a4-98ae-42b4-b600-88dbd12a6f5b",
+    "colId": "496e9133-1511-46f1-a70e-4b759e7ab5e6",
+    "containerId": "",
+    "name": "Update ExercisePlan or Add Exercises    localhost:4000/exerciseplan/63bea1c73118b19dee8cdddb",
+    "url": "localhost:4000/exerciseplan/63bea1c73118b19dee8cdddb",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2023-01-11T14:05:46.774Z",
+    "modified": "2023-01-11T14:05:46.774Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"updated title\",\n  \"exercises\": [\n    \"63bc723a491c618c94426fec\",\n    \"63bc723a491c618c94426fe9\"\n    ]\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

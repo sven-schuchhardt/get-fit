@@ -1,0 +1,8 @@
+
+.box{
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.header-background{
+  clip-path: polygon(0 0, 100% 0, 84% 100%, 0 69%);
+}
